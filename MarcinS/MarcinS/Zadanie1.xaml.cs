@@ -1,24 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MarcinS
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -89,6 +76,16 @@ namespace MarcinS
                     break;
             }
             
+        }
+
+        private void zerzer_Click(object sender, RoutedEventArgs e)
+        {
+            if (operation_pressed)
+            {
+                input.Clear();
+            }
+            operation_pressed = false;
+            input.Text = input.Text + "00";
         }
 
         private void one_Click(object sender, RoutedEventArgs e)
@@ -203,21 +200,6 @@ namespace MarcinS
         }
         #endregion
 
-        #region funckje
-
-        int readInput()
-        {
-            if (input.Text != "")
-            {
-                return Convert.ToInt32(input.Text);
-            }
-            return 0;
-        }
-
-
-
-        #endregion
-
         private void input_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -228,5 +210,6 @@ namespace MarcinS
             e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
         }
 
+        
     }
 }
