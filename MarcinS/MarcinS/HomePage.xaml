@@ -1,0 +1,25 @@
+﻿<Window x:Class="MarcinS.HomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MarcinS"
+        mc:Ignorable="d"
+        Title="HomePage" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="calculator"  FontSize="35" Click="calculatorClick">Kalkulator</Button>
+        <Button x:Name="kik" FontSize="35" Grid.Column="1" Click="kikClick">Kółko i krzyżyk</Button>
+        <Button x:Name="ships" FontSize="35" Grid.Row="1" Click="shipsClick">Statki</Button>
+    </Grid>
+</Window>
