@@ -21,12 +21,13 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <TextBox x:Name="input" Grid.ColumnSpan="3" FontSize="30" TextChanged="input_TextChanged" PreviewTextInput="input_previewtextinput"/>
+        <TextBox x:Name="input" Grid.ColumnSpan="2" FontSize="30" TextChanged="input_TextChanged" PreviewTextInput="input_previewtextinput"/>
+        <Label x:Name="screen" HorizontalContentAlignment="Right" Grid.Row="0" Grid.Column="2" FontSize="30"/>
         <Button x:Name="add" Grid.Column="3" Grid.Row="1" FontSize="30" Click="add_Click">+</Button>
         <Button x:Name="sub" Grid.Column="3" Grid.Row="2" FontSize="30" Click="sub_Click">-</Button>
         <Button x:Name="div" Grid.Column="3" Grid.Row="4" FontSize="30" Click="div_Click">/</Button>
         <Button x:Name="mul" Grid.Column="3" Grid.Row="3" FontSize="30" Click="mul_Click">*</Button>
-        <Button x:Name="zerzer" Grid.Column="0" Grid.Row="4" FontSize="30" Click="zerzer_Click">00</Button>
+        <Button x:Name="coma" Grid.Column="0" Grid.Row="4" FontSize="30" Click="coma_Click">,</Button>
         <Button x:Name="equ" Grid.Column="2" Grid.Row="4" FontSize="30" Click="equ_Click">=</Button>
         <Button x:Name="clear" Grid.Column="3" Grid.Row="0" FontSize="30" Click="clear_Click">AC</Button>
         <Button x:Name="one" Grid.Column="0" Grid.Row="1" FontSize="30" Click="one_Click">1</Button>
