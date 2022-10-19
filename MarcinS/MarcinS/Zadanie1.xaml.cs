@@ -92,6 +92,7 @@ namespace MarcinS
         {
             input.Text = "0";
             result = 0;
+            screen.Content = "";
         }
 
         private void equ_Click(object sender, RoutedEventArgs e)
