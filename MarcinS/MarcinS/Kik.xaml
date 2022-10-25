@@ -10,11 +10,13 @@
     <Window.Resources>
         <Style TargetType = "Button" x:Key="Button1">
             <Setter Property = "BorderBrush" Value="#FF000000"></Setter>
-            <Setter Property = "BorderThickness" Value="3"></Setter>
+            <Setter Property = "BorderThickness" Value="5"></Setter>
+            <Setter Property = "FontSize" Value="70"></Setter>
+            <EventSetter Event="Click" Handler="PlayerClick"></EventSetter>
         </Style>
     </Window.Resources>
 
-    <Grid>
+    <Grid x:Name="Board">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
@@ -28,15 +30,15 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="100" />
         </Grid.RowDefinitions>
-        <Button Style="{StaticResource Button1}" Click="r1c1_Click" x:Name="r1c1"  FontSize="110"></Button>
-        <Button Style="{StaticResource Button1}" Click="r1c2_Click" x:Name="r1c2" FontSize="110" Grid.Column="1"></Button>
-        <Button Style="{StaticResource Button1}" Click="r1c3_Click" x:Name="r1c3"  FontSize="110" Grid.Column="2"></Button>
-        <Button Style="{StaticResource Button1}" Click="r2c1_Click" x:Name="r2c1"  FontSize="110" Grid.Row="1"></Button>
-        <Button Style="{StaticResource Button1}" Click="r2c2_Click" x:Name="r2c2"  FontSize="110" Grid.Row="1" Grid.Column="1"></Button>
-        <Button Style="{StaticResource Button1}" Click="r2c3_Click" x:Name="r2c3"  FontSize="110" Grid.Row="1" Grid.Column="2"></Button>
-        <Button Style="{StaticResource Button1}" Click="r3c1_Click" x:Name="r3c1"  FontSize="110" Grid.Row="2"></Button>
-        <Button Style="{StaticResource Button1}" Click="r3c2_Click" x:Name="r3c2"  FontSize="110" Grid.Row="2" Grid.Column="1"></Button>
-        <Button Style="{StaticResource Button1}" Click="r3c3_Click" x:Name="r3c3"  FontSize="110" Grid.Row="2" Grid.Column="2"></Button>
+        <Button Style="{StaticResource Button1}" Tag="00" ></Button>
+        <Button Style="{StaticResource Button1}" Tag="01" Grid.Column="1"></Button>
+        <Button Style="{StaticResource Button1}" Tag="02" Grid.Column="2"></Button>
+        <Button Style="{StaticResource Button1}" Tag="10" Grid.Row="1"></Button>
+        <Button Style="{StaticResource Button1}" Tag="11" Grid.Row="1" Grid.Column="1"></Button>
+        <Button Style="{StaticResource Button1}" Tag="12" Grid.Row="1" Grid.Column="2"></Button>
+        <Button Style="{StaticResource Button1}" Tag="20" Grid.Row="2"></Button>
+        <Button Style="{StaticResource Button1}" Tag="21" Grid.Row="2" Grid.Column="1"></Button>
+        <Button Style="{StaticResource Button1}" Tag="22" Grid.Row="2" Grid.Column="2"></Button>
         <Button Click="NewGame_Click" x:Name="NewGame"  FontSize="20" Grid.Row="3" Grid.Column="1" Margin="10,20,10,20">New Game</Button>
         
     </Grid>

@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MarcinS
@@ -24,54 +25,43 @@ namespace MarcinS
             InitializeComponent();
         }
 
-        private void r1c1_Click(object sender, RoutedEventArgs e)
+        KikLogic KikLogic = new KikLogic();
+        int x = 0;
+        int y = 0;
+
+        private void PlayerClick(object sender, RoutedEventArgs e)
         {
-            
+            var space = (Button)sender;
+            if (!String.IsNullOrWhiteSpace(space.Content?.ToString())) return;
+            space.Content = KikLogic.CurrentPlayer;
+
+            string coordinates = space.Tag.ToString();
+            x = Convert.ToInt32(coordinates[0].ToString());
+            y = Convert.ToInt32(coordinates[1].ToString());
+
+            KikLogic.UpdateBoard(x, y, KikLogic.CurrentPlayer);
+
+            if (KikLogic.Win())
+            {
+                MessageBox.Show($"{KikLogic.CurrentPlayer} wins");
+                KikLogic = new KikLogic();
+            }
+
+            KikLogic.NextPlayer();
         }
 
-        private void r1c2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void r1c3_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void r2c1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void r2c2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void r2c3_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void r3c1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void r3c2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void r3c3_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void NewGame_Click(object sender, RoutedEventArgs e)
         {
-
+            foreach(var control in Board.Children)
+            {
+                if(control is Button)
+                {
+                    ((Button)control).Content = String.Empty;
+                }
+            }
+            NewGame.Content = "New Game"; 
+            KikLogic = new KikLogic();
         }
     }
 }
