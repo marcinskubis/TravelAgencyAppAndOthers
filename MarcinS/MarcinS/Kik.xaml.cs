@@ -68,5 +68,10 @@ namespace MarcinS
         {
 
         }
+
+        private void NewGame_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
