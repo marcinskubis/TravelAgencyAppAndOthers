@@ -32,7 +32,7 @@ namespace MarcinS
         private void PlayerClick(object sender, RoutedEventArgs e)
         {
             var space = (Button)sender;
-            if (space.Content!=null) return;
+            if (!String.IsNullOrWhiteSpace(space.ContentStringFormat)) return;
             space.Content = KikLogic.CurrentPlayer;
 
             string coordinates = space.Tag.ToString();
