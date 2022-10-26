@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="Zadanie2" Height="450" Width="800">
     <StackPanel>
-        <TextBox>imie</TextBox>
-        <TextBox>nazwisko</TextBox>
-        <TextBox>data urodzin</TextBox>
-        <TextBox>semestr</TextBox>
-        <Button HorizontalAlignment="Right" Width="120" Click="Button_Click">Dodaj</Button>
+        <TextBox Text="imię"/>
+        <TextBox Text="nazwisko"/>
+        <TextBox Text="data narodzin"/>
+        <TextBox Text="semestr"/>
+        <Button HorizontalAlignment="Right" Width="120" Click="Button_Click" Content="Dodaj"/>
     </StackPanel>
 </Window>

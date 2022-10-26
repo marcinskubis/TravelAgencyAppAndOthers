@@ -22,23 +22,23 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <TextBox x:Name="input" Grid.ColumnSpan="3" FontSize="30" TextChanged="input_TextChanged" PreviewTextInput="input_previewtextinput"/>
-        <Button x:Name="add" Grid.Column="3" Grid.Row="1" FontSize="30" Click="add_Click">+</Button>
-        <Button x:Name="sub" Grid.Column="3" Grid.Row="2" FontSize="30" Click="sub_Click">-</Button>
-        <Button x:Name="div" Grid.Column="3" Grid.Row="4" FontSize="30" Click="div_Click">/</Button>
-        <Button x:Name="mul" Grid.Column="3" Grid.Row="3" FontSize="30" Click="mul_Click">*</Button>
-        <Button x:Name="zerzer" Grid.Column="0" Grid.Row="4" FontSize="30" Click="zerzer_Click">00</Button>
-        <Button x:Name="equ" Grid.Column="2" Grid.Row="4" FontSize="30" Click="equ_Click">=</Button>
-        <Button x:Name="clear" Grid.Column="3" Grid.Row="0" FontSize="30" Click="clear_Click">AC</Button>
-        <Button x:Name="one" Grid.Column="0" Grid.Row="1" FontSize="30" Click="one_Click">1</Button>
-        <Button x:Name="four" Grid.Column="0" Grid.Row="2" FontSize="30" Click="four_Click">4</Button>
-        <Button x:Name="seven" Grid.Column="0" Grid.Row="3" FontSize="30" Click="seven_Click">7</Button>
-        <Button x:Name="two" Grid.Column="1" Grid.Row="1" FontSize="30" Click="two_Click">2</Button>
-        <Button x:Name="five" Grid.Column="1" Grid.Row="2" FontSize="30" Click="five_Click">5</Button>
-        <Button x:Name="eight" Grid.Column="1" Grid.Row="3" FontSize="30" Click="eight_Click">8</Button>
-        <Button x:Name="zero" Grid.Column="1" Grid.Row="4" FontSize="30" Click="zero_Click">0</Button>
-        <Button x:Name="three" Grid.Column="2" Grid.Row="1" FontSize="30" Click="three_Click">3</Button>
-        <Button x:Name="six" Grid.Column="2" Grid.Row="2" FontSize="30" Click="six_Click">6</Button>
-        <Button x:Name="nine" Grid.Column="2" Grid.Row="3" FontSize="30" Click="nine_Click">9</Button>
+        <Button x:Name="add" Grid.Column="3" Grid.Row="1" FontSize="30" Click="add_Click" Content="+"/>
+        <Button x:Name="sub" Grid.Column="3" Grid.Row="2" FontSize="30" Click="sub_Click" Content="-"/>
+        <Button x:Name="div" Grid.Column="3" Grid.Row="4" FontSize="30" Click="div_Click" Content="/"/>
+        <Button x:Name="mul" Grid.Column="3" Grid.Row="3" FontSize="30" Click="mul_Click" Content="*"/>
+        <Button x:Name="coma" Grid.Column="0" Grid.Row="4" FontSize="30" Click="coma_Click" Content=","/>
+        <Button x:Name="equ" Grid.Column="2" Grid.Row="4" FontSize="30" Click="equ_Click" Content="="/>
+        <Button x:Name="clear" Grid.Column="3" Grid.Row="0" FontSize="30" Click="clear_Click" Content="AC"/>
+        <Button x:Name="one" Grid.Column="0" Grid.Row="1" FontSize="30" Click="one_Click" Content="1"/>
+        <Button x:Name="four" Grid.Column="0" Grid.Row="2" FontSize="30" Click="four_Click" Content="4"/>
+        <Button x:Name="seven" Grid.Column="0" Grid.Row="3" FontSize="30" Click="seven_Click" Content="7"/>
+        <Button x:Name="two" Grid.Column="1" Grid.Row="1" FontSize="30" Click="two_Click" Content="2"/>
+        <Button x:Name="five" Grid.Column="1" Grid.Row="2" FontSize="30" Click="five_Click" Content="5"/>
+        <Button x:Name="eight" Grid.Column="1" Grid.Row="3" FontSize="30" Click="eight_Click" Content="8"/>
+        <Button x:Name="zero" Grid.Column="1" Grid.Row="4" FontSize="30" Click="zero_Click" Content="0"/>
+        <Button x:Name="three" Grid.Column="2" Grid.Row="1" FontSize="30" Click="three_Click" Content="3"/>
+        <Button x:Name="six" Grid.Column="2" Grid.Row="2" FontSize="30" Click="six_Click" Content="6"/>
+        <Button x:Name="nine" Grid.Column="2" Grid.Row="3" FontSize="30" Click="nine_Click" Content="9"/>
     </Grid>
 
 </Window>
