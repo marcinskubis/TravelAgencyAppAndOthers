@@ -38,7 +38,10 @@ namespace MarcinS
 
         private void shipsClick(object sender, RoutedEventArgs e)
         {
-
+            Battleship1 battleship1 = new Battleship1();
+            battleship1.Show();
+            Battleship2 battleship2 = new Battleship2();
+            battleship2.Show();
         }
     }
 }

@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MarcinS
+﻿namespace MarcinS
 {
     public class KikLogic
     {
-        public string CurrentPlayer { get; set; } = X;
+        public string CurrentPlayer = X;
         private const string X = "X";
         private const string O = "O";
         private string[,] Board = new string[3, 3];

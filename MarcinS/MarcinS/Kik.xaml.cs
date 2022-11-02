@@ -21,8 +21,10 @@ namespace MarcinS
         private void PlayerClick(object sender, RoutedEventArgs e)
         {
             var space = (Button)sender;
-            if (!String.IsNullOrWhiteSpace(space.ContentStringFormat)) return;
-            space.Content = KikLogic.CurrentPlayer;
+            if (!String.IsNullOrWhiteSpace(space.ContentStringFormat)) {
+                return;
+             }
+            space.Content =KikLogic.CurrentPlayer;
 
             string coordinates = space.Tag.ToString() ?? string.Empty;
             x = Convert.ToInt32(coordinates[0].ToString());
