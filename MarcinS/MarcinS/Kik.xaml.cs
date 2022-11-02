@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MarcinS
 {
@@ -35,7 +24,7 @@ namespace MarcinS
             if (!String.IsNullOrWhiteSpace(space.ContentStringFormat)) return;
             space.Content = KikLogic.CurrentPlayer;
 
-            string coordinates = space.Tag.ToString();
+            string coordinates = space.Tag.ToString() ?? string.Empty;
             x = Convert.ToInt32(coordinates[0].ToString());
             y = Convert.ToInt32(coordinates[1].ToString());
 
