@@ -24,6 +24,15 @@ namespace MarcinS
             InitializeComponent();
         }
 
+        private void CrBttn(object sender, RoutedEventArgs e)
+        {
+            foreach(var control in G1.Children)
+            {
+                if (Grid.GetRow == null && Grid.GetColumn == null)
+                {
 
+                }
+            }
+        }
     }
 }
