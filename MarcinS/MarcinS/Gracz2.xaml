@@ -15,7 +15,7 @@
             <Setter Property="BorderThickness" Value="1,1,1,1"/>
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid x:Name="G2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
