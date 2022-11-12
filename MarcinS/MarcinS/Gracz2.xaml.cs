@@ -70,7 +70,7 @@ namespace MarcinS
                     }
                     x++;
                     Button button = new Button();
-                    button.Tag = $"{letter}{i}";
+                    button.Tag = $"0{letter}{i}";
                     Grid.SetColumn(button, i);
                     Grid.SetRow(button, j);
                     G2.Children.Add(button);
@@ -122,7 +122,7 @@ namespace MarcinS
                     }
 
                     Button button = new Button();
-                    button.Tag = $"{letter}{i}";
+                    button.Tag = $"0{letter}{i}";
                     Grid.SetColumn(button, i);
                     Grid.SetRow(button, j);
                     G2.Children.Add(button);
