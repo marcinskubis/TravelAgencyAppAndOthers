@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Dynamic;
+using System.Security.Cryptography.Xml;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,119 +15,224 @@ namespace MarcinS
         {
             InitializeComponent();
             CrBtn();
+            int[] tab = new int[100];
+            int[] tab2 = new int[100];
+            BattleshipLogic gra = new BattleshipLogic(tab, tab2);
+            G1.DataContext = gra;
+            Battleship2 okno = new Battleship2();
+            okno.DataContext = gra;
+            okno.Show();
         }
 
-     
+
+
+        void setButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            if (((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())] == 0)
+                ((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())]++;
+            else if (((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())] == 1)
+                ((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())]--;
+        }
+
+        void shootButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            if (((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())] == 0 || ((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())] == 1)
+                ((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())] += 2;
+        }
+
+
 
         private void CrBtn()
         {
             //Strzelanie
             string letter = "";
-            for(int i=1; i<11; i++)
+            int x = 0;
+            int y = 0;
+            for (int k = 0; k < 2; k++)
             {
-                for(int j=1; j<11; j++)
+                switch (k)
                 {
-                    switch(j)
-                    {
-                        case 1:
-                            letter = "A";
-                                break;
-                        case 2:
-                            letter = "B";
-                                break;
-                        case 3:
-                            letter = "C";
-                                break;
-                        case 4:
-                            letter = "D";
-                                break;
-                        case 5:
-                            letter = "E";
-                                break;
-                        case 6:
-                            letter = "F";
-                                break;
-                        case 7:
-                            letter = "G";
-                                break;
-                        case 8:
-                            letter = "H";
-                                break;
-                        case 9:
-                            letter = "I";
-                                break;
-                        case 10:
-                            letter = "J";
-                                break;
-                    }
-                    Button button = new Button();
-                    button.Tag = $"{letter}{i}";
-                    Grid.SetColumn(button, i);
-                    Grid.SetRow(button, j);
-                    G1.Children.Add(button);
-                    button.Click += new RoutedEventHandler(shootButton_Click);
+                    case 0:
+                        for (int i = 1; i < 11; i++)
+                        {
+                            for (int j = 1; j < 11; j++)
+                            {
+                                switch (j)
+                                {
+                                    case 1:
+                                        letter = "A";
+                                        break;
+                                    case 2:
+                                        letter = "B";
+                                        break;
+                                    case 3:
+                                        letter = "C";
+                                        break;
+                                    case 4:
+                                        letter = "D";
+                                        break;
+                                    case 5:
+                                        letter = "E";
+                                        break;
+                                    case 6:
+                                        letter = "F";
+                                        break;
+                                    case 7:
+                                        letter = "G";
+                                        break;
+                                    case 8:
+                                        letter = "H";
+                                        break;
+                                    case 9:
+                                        letter = "I";
+                                        break;
+                                    case 10:
+                                        letter = "J";
+                                        break;
+                                }
+                                Button button = new Button();
+                                button.Tag = $"{x}";
+                                Grid.SetColumn(button, i);
+                                Grid.SetRow(button, j);
+                                shoot.Children.Add(button);
+                                button.Click += new RoutedEventHandler(shootButton_Click);
+                                YesNoToBooleanConverter yesNoToBooleanConverter = new YesNoToBooleanConverter();
+                                Binding bind = new Binding
+                                {
+                                    Path = new PropertyPath($"PersonIdOne[{0}]",x),
+                                    Mode = BindingMode.TwoWay,
+                                    Converter = yesNoToBooleanConverter
+                                };
+                                x++;
 
+                            }
+                        }
+                        break;
+                    case 1:
+                        for (int i = 1; i < 11; i++)
+                        {
+                            for (int j = 1; j < 11; j++)
+                            {
+                                switch (j)
+                                {
+                                    case 1:
+                                        letter = "A";
+                                        break;
+                                    case 2:
+                                        letter = "B";
+                                        break;
+                                    case 3:
+                                        letter = "C";
+                                        break;
+                                    case 4:
+                                        letter = "D";
+                                        break;
+                                    case 5:
+                                        letter = "E";
+                                        break;
+                                    case 6:
+                                        letter = "F";
+                                        break;
+                                    case 7:
+                                        letter = "G";
+                                        break;
+                                    case 8:
+                                        letter = "H";
+                                        break;
+                                    case 9:
+                                        letter = "I";
+                                        break;
+                                    case 10:
+                                        letter = "J";
+                                        break;
+                                }
+                                Button button = new Button();
+                                button.Tag = $"{y}";
+                                Grid.SetColumn(button, i);
+                                Grid.SetRow(button, j);
+                                set.Children.Add(button);
+                                button.Click += new RoutedEventHandler(setButton_Click);
+                                YesNoToBooleanConverter2 yesNoToBooleanConverter2 = new YesNoToBooleanConverter2();
+                                Binding bind = new Binding
+                                {
+                                    Path = new PropertyPath($"PersonIdTwo[{y}]"),
+                                    Mode = BindingMode.TwoWay,
+                                    Converter = yesNoToBooleanConverter2
+                                };
+                                y++;
+
+                            }
+                        }
+                        break;
                 }
             }
 
-            //Stawianie
-            for(int i=12; i<22; i++)
+
+        }
+
+        public class YesNoToBooleanConverter : IValueConverter
+        {
+            public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
             {
-                for(int j=1; j<11; j++)
+                switch (value)
                 {
-                    switch (j)
-                    {
-                        case 1:
-                            letter = "A";
-                            break;
-                        case 2:
-                            letter = "B";
-                            break;
-                        case 3:
-                            letter = "C";
-                            break;
-                        case 4:
-                            letter = "D";
-                            break;
-                        case 5:
-                            letter = "E";
-                            break;
-                        case 6:
-                            letter = "F";
-                            break;
-                        case 7:
-                            letter = "G";
-                            break;
-                        case 8:
-                            letter = "H";
-                            break;
-                        case 9:
-                            letter = "I";
-                            break;
-                        case 10:
-                            letter = "J";
-                            break;
-                    }
-
-                    Button button = new Button();
-                    button.Tag = $"{letter}{i}";
-                    Grid.SetColumn(button, i);
-                    Grid.SetRow(button, j);
-                    G1.Children.Add(button);
-                    button.Click += new RoutedEventHandler(setButton_Click);
-
+                    case 3:
+                        return new SolidColorBrush(Colors.Red);
+                    case 2:
+                        return new SolidColorBrush(Colors.Yellow);
+                    case 1:
+                        return new SolidColorBrush(Colors.Black);
+                    case 0:
+                        return new SolidColorBrush(Colors.Transparent);
                 }
+                return false;
+            }
+
+            public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+            {
+                if (value is Colors)
+                {
+                    //if ((Colors)value == Colors.Red)
+                    //    return 4;
+                    //else
+                    //    return 0;
+                }
+                return 0;
             }
         }
 
-        void setButton_Click(object sender, RoutedEventArgs e)
+        public class YesNoToBooleanConverter2 : IValueConverter
         {
-            MessageBox.Show(string.Format("You clicked on the {0}. button.", (sender as Button)?.Tag));
+            public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+            {
+                switch (value)
+                {
+                    case 3:
+                        return new SolidColorBrush(Colors.Red);
+                    case 2:
+                        return new SolidColorBrush(Colors.Yellow);
+                    case 1:
+                        return new SolidColorBrush(Colors.Transparent);
+                    case 0:
+                        return new SolidColorBrush(Colors.Transparent);
+                }
+                return false;
+            }
+
+            public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+            {
+                if (value is Colors)
+                {
+                    //if ((Colors)value == Colors.Red)
+                    //    return 4;
+                    //else
+                    //    return 0;
+                }
+                return 0;
+            }
         }
 
-        void shootButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show(string.Format("You clicked on the {0}. button.", (sender as Button)?.Tag));
-        }
     }
 }

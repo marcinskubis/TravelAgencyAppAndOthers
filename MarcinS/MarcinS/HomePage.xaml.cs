@@ -40,8 +40,6 @@ namespace MarcinS
         {
             Battleship1 battleship1 = new Battleship1();
             battleship1.Show();
-            Battleship2 battleship2 = new Battleship2();
-            battleship2.Show();
         }
     }
 }

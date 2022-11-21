@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static MarcinS.Battleship1;
 
 namespace MarcinS
 {
@@ -25,121 +26,146 @@ namespace MarcinS
             CrBtn();
         }
 
-        private void CrBtn()
+        void setButton_Click(object sender, RoutedEventArgs e)
         {
-            int x = 0;
-            int y = 0;
+            Button btn = (Button)sender;
+            if (((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())] == 0)
+                ((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())]++;
+            else if (((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())] == 1)
+                ((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())]--;
+        }
+
+        void shootButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            if (((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())] == 0 || ((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())] == 1)
+                ((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())] += 2;
+        }
+
+        public void CrBtn()
+        {
             //Strzelanie
             string letter = "";
-            for (int i = 1; i < 11; i++)
+            int x = 0;
+            int y = 0;
+            for (int k = 0; k < 2; k++)
             {
-                for (int j = 1; j < 11; j++)
-                {
-                    switch (j)
-                    {
-                        case 1:
-                            letter = "A";
-                            break;
-                        case 2:
-                            letter = "B";
-                            break;
-                        case 3:
-                            letter = "C";
-                            break;
-                        case 4:
-                            letter = "D";
-                            break;
-                        case 5:
-                            letter = "E";
-                            break;
-                        case 6:
-                            letter = "F";
-                            break;
-                        case 7:
-                            letter = "G";
-                            break;
-                        case 8:
-                            letter = "H";
-                            break;
-                        case 9:
-                            letter = "I";
-                            break;
-                        case 10:
-                            letter = "J";
-                            break;
-                    }
-                    x++;
-                    Button button = new Button();
-                    button.Tag = $"0{letter}{i}";
-                    Grid.SetColumn(button, i);
-                    Grid.SetRow(button, j);
-                    G2.Children.Add(button);
-                    button.Click += new RoutedEventHandler(shootButton_Click);
+                switch (k) { 
+                    case 0:
+                        for (int i = 1; i < 11; i++)
+                        {
+                            for (int j = 1; j < 11; j++)
+                            {
+                                switch (j)
+                                {
+                                    case 1:
+                                        letter = "A";
+                                        break;
+                                    case 2:
+                                        letter = "B";
+                                        break;
+                                    case 3:
+                                        letter = "C";
+                                        break;
+                                    case 4:
+                                        letter = "D";
+                                        break;
+                                    case 5:
+                                        letter = "E";
+                                        break;
+                                    case 6:
+                                        letter = "F";
+                                        break;
+                                    case 7:
+                                        letter = "G";
+                                        break;
+                                    case 8:
+                                        letter = "H";
+                                        break;
+                                    case 9:
+                                        letter = "I";
+                                        break;
+                                    case 10:
+                                        letter = "J";
+                                        break;
+                                }
+                                Button button = new Button();
+                                button.Tag = $"{x}";
+                                Grid.SetColumn(button, i);
+                                Grid.SetRow(button, j);
+                                shoot.Children.Add(button);
+                                button.Click += new RoutedEventHandler(shootButton_Click);
+                                YesNoToBooleanConverter yesNoToBooleanConverter = new YesNoToBooleanConverter();
+                                Binding bind = new Binding
+                                {
+                                    Path = new PropertyPath($"PersonIdOne[{x}]"),
+                                    Mode = BindingMode.TwoWay,
+                                    Converter = yesNoToBooleanConverter
+                                };
+                                x++;
 
+                            }
+                        }
+                        break;
+                    case 1:
+                        for (int i = 1; i < 11; i++)
+                        {
+                            for (int j = 1; j < 11; j++)
+                            {
+                                switch (j)
+                                {
+                                    case 1:
+                                        letter = "A";
+                                        break;
+                                    case 2:
+                                        letter = "B";
+                                        break;
+                                    case 3:
+                                        letter = "C";
+                                        break;
+                                    case 4:
+                                        letter = "D";
+                                        break;
+                                    case 5:
+                                        letter = "E";
+                                        break;
+                                    case 6:
+                                        letter = "F";
+                                        break;
+                                    case 7:
+                                        letter = "G";
+                                        break;
+                                    case 8:
+                                        letter = "H";
+                                        break;
+                                    case 9:
+                                        letter = "I";
+                                        break;
+                                    case 10:
+                                        letter = "J";
+                                        break;
+                                }
+                                Button button = new Button();
+                                button.Tag = $"{y}";
+                                Grid.SetColumn(button, i);
+                                Grid.SetRow(button, j);
+                                set.Children.Add(button);
+                                button.Click += new RoutedEventHandler(setButton_Click);
+                                YesNoToBooleanConverter2 yesNoToBooleanConverter2 = new YesNoToBooleanConverter2();
+                                Binding bind = new Binding
+                                {
+                                    Path = new PropertyPath($"PersonIdTwo[{y}]"),
+                                    Mode = BindingMode.TwoWay,
+                                    Converter = yesNoToBooleanConverter2
+                                };
+                                y++;
+
+                            }
+                        }
+                        break;
                 }
-                x++;
             }
 
-            //Stawianie
-            for (int i = 12; i < 22; i++)
-            {
-                y++;
-                for (int j = 1; j < 11; j++)
-                {
-                    y++;
-                    switch (j)
-                    {
-                        case 1:
-                            letter = "A";
-                            break;
-                        case 2:
-                            letter = "B";
-                            break;
-                        case 3:
-                            letter = "C";
-                            break;
-                        case 4:
-                            letter = "D";
-                            break;
-                        case 5:
-                            letter = "E";
-                            break;
-                        case 6:
-                            letter = "F";
-                            break;
-                        case 7:
-                            letter = "G";
-                            break;
-                        case 8:
-                            letter = "H";
-                            break;
-                        case 9:
-                            letter = "I";
-                            break;
-                        case 10:
-                            letter = "J";
-                            break;
-                    }
-
-                    Button button = new Button();
-                    button.Tag = $"0{letter}{i}";
-                    Grid.SetColumn(button, i);
-                    Grid.SetRow(button, j);
-                    G2.Children.Add(button);
-                    button.Click += new RoutedEventHandler(setButton_Click);
-
-                }
-                
-            }
-            void setButton_Click(object sender, RoutedEventArgs e)
-            {
-                MessageBox.Show(string.Format("You clicked on the {0}. button.", (sender as Button)?.Tag));
-            }
-
-            void shootButton_Click(object sender, RoutedEventArgs e)
-            {
-                MessageBox.Show(string.Format("You clicked on the {0}. button.", (sender as Button)?.Tag));
-            }
         }
     }
 }
