@@ -131,6 +131,8 @@
             <Label Grid.Column="8" Content="8"/>
             <Label Grid.Column="9" Content="9"/>
             <Label Grid.Column="10" Content="10"/>
+
+            <Label x:Name="counter" FontStyle="Italic" Grid.Row="0"/>
         </Grid>
     </Grid>
 </Window>
