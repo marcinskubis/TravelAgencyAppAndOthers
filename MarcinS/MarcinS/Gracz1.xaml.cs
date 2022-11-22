@@ -23,6 +23,7 @@ namespace MarcinS
             Battleship2 okno = new Battleship2();
             okno.DataContext = gra;
             okno.Show();
+            counter.Content = 20;
         }
 
         int setCounter = 0;
@@ -30,19 +31,23 @@ namespace MarcinS
         void setButton_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            if (setCounter < 20)
+
+            if (((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())] == 0)
             {
-                if (((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())] == 0)
-                    ((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())]++;
-                else if (((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())] == 1)
-                    ((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())]--;
+                if (setCounter == 20) return;
+                ((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())]++;
                 setCounter++;
-                counter.Content = setCounter;
+                counter.Content = 20 - setCounter;
             }
-            else
+            else if (((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())] == 1)
             {
-                MessageBox.Show("Wykorzystano wszystkie statki.");
+                ((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())]--;
+                setCounter--;
+                counter.Content = 20 - setCounter;
             }
+           ;
+            
+            
         }
 
         void shootButton_Click(object sender, RoutedEventArgs e)
