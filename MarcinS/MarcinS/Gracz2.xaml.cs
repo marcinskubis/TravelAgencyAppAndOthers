@@ -1,45 +1,63 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using static MarcinS.Battleship1;
 
 namespace MarcinS
 {
-    /// <summary>
-    /// Interaction logic for Battleship2.xaml
-    /// </summary>
     public partial class Battleship2 : Window
     {
         public Battleship2()
         {
             InitializeComponent();
             CrBtn();
+            counter.Content = 20;
+            setCounter = 0;
+            shootsHit = 0;
         }
+        static int[] tab = new int[100];
+        static int[] tab2 = new int[100];
+        BattleshipLogic gra = new BattleshipLogic(tab, tab2);
+        public int setCounter = 0;
+        public int shootsHit = 0;
 
         void setButton_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
             if (((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())] == 0)
+            {
+                if (setCounter == 20) return;
                 ((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())]++;
+                setCounter++;
+                counter.Content = 20 - setCounter;
+            }
+                
             else if (((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())] == 1)
+            {
                 ((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())]--;
+                setCounter--;
+                counter.Content = 20 - setCounter;
+            }
         }
 
         void shootButton_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            if (((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())] == 0 || ((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())] == 1)
+            if (((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())] == 0)
+            {
                 ((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())] += 2;
+
+            }
+            if (((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())] == 1)
+            {
+                ((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())] += 2;
+                shootsHit++;
+                if(gra.CheckWin(shootsHit))
+                {
+                    MessageBox.Show("Wygrał gracz nr.2");
+                };
+            }
         }
 
         public void CrBtn()

@@ -76,6 +76,8 @@
             <Label Grid.Column="8" Content="8"/>
             <Label Grid.Column="9" Content="9"/>
             <Label Grid.Column="10" Content="10"/>
+
+            <Button x:Name="restart" Content="R" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Heavy" Click="restart_Click"/>
         </Grid>
         <Grid x:Name="set" Grid.Column="1">
             <Grid.ColumnDefinitions>

@@ -1,33 +1,29 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.Dynamic;
-using System.Security.Cryptography.Xml;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
-using static MarcinS.Battleship1;
 
 namespace MarcinS
 {
     public partial class Battleship1 : Window
     {
+        static int[] tab = new int[100];
+        static int[] tab2 = new int[100];
+        BattleshipLogic gra = new BattleshipLogic(tab, tab2);
+        Battleship2 okno = new Battleship2();
         public Battleship1()
         {
             InitializeComponent();
             CrBtn();
-            int[] tab = new int[100];
-            int[] tab2 = new int[100];
-            BattleshipLogic gra = new BattleshipLogic(tab, tab2);
             G1.DataContext = gra;
-            Battleship2 okno = new Battleship2();
             okno.DataContext = gra;
             okno.Show();
             counter.Content = 20;
         }
 
         int setCounter = 0;
-
+        int shootsHit = 0;
         void setButton_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
@@ -45,20 +41,26 @@ namespace MarcinS
                 setCounter--;
                 counter.Content = 20 - setCounter;
             }
-           ;
-            
-            
         }
 
         void shootButton_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            if (((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())] == 0 || ((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())] == 1)
+            if (((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())] == 0)
+            {
                 ((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())] += 2;
+
+            }
+            if (((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())] == 1)
+            {
+                ((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())] += 2;
+                shootsHit++;
+                if (gra.CheckWin(shootsHit))
+                {
+                    MessageBox.Show("Wygrał gracz nr.1");
+                };
+            }
         }
-
-
-
         private void CrBtn()
         {
             int x = 0;
@@ -124,7 +126,6 @@ namespace MarcinS
 
 
         }
-
         public class YesNoToBooleanConverter : IValueConverter
         {
             public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
@@ -155,7 +156,6 @@ namespace MarcinS
                 return 0;
             }
         }
-
         public class YesNoToBooleanConverter2 : IValueConverter
         {
             public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
@@ -173,7 +173,6 @@ namespace MarcinS
                 }
                 return false;
             }
-
             public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
             {
                 if (value is Colors)
@@ -187,5 +186,20 @@ namespace MarcinS
             }
         }
 
+        private void restart_Click(object sender, RoutedEventArgs e)
+        {
+            InitializeComponent();
+            int[] tab1 = new int[100];
+            int[] tab3 = new int[100];
+            BattleshipLogic gra = new BattleshipLogic(tab1, tab3);
+            G1.DataContext = gra;
+            okno.DataContext = gra;
+            counter.Content = 20;
+            setCounter = 0;
+            shootsHit = 0;
+            okno.setCounter = 0;
+            okno.shootsHit = 0;
+            okno.counter.Content = 20;
+        }
     }
 }

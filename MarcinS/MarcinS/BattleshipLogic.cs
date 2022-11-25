@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace MarcinS
 {
@@ -19,7 +11,6 @@ namespace MarcinS
         { };
         ObservableCollection<int> _PersonIdTwo = new ObservableCollection<int>
         { };
-
         public ObservableCollection<int> PersonIdOne
         {
             get
@@ -32,7 +23,6 @@ namespace MarcinS
                 OnPropertyChanged("PersonId");
             }
         }
-
         public ObservableCollection<int> PersonIdTwo
         {
             get
@@ -45,7 +35,6 @@ namespace MarcinS
                 OnPropertyChanged("PersonId");
             }
         }
-
         public BattleshipLogic(int[] nPersonIdOne, int[] nPersonIdTwo)
         {
             foreach (int _person in nPersonIdOne)
@@ -63,6 +52,11 @@ namespace MarcinS
         {
             var handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+        public bool CheckWin(int shootsHit)
+        {
+            if(shootsHit==20) return true;
+            return false;
         }
     }
 }
