@@ -30,7 +30,10 @@ namespace MarcinS
 
             if (((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())] == 0)
             {
-                if (setCounter == 20) return;
+                if (setCounter == 20)
+                {
+                    return;
+                }
                 ((BattleshipLogic)G1.DataContext).PersonIdOne[Convert.ToInt32(btn.Tag.ToString())]++;
                 setCounter++;
                 counter.Content = 20 - setCounter;
@@ -55,6 +58,7 @@ namespace MarcinS
             {
                 ((BattleshipLogic)G1.DataContext).PersonIdTwo[Convert.ToInt32(btn.Tag.ToString())] += 2;
                 shootsHit++;
+
                 if (gra.CheckWin(shootsHit))
                 {
                     MessageBox.Show("Wygrał gracz nr.1");
@@ -69,7 +73,6 @@ namespace MarcinS
             {
                 switch (k)
                 {
-                    //strzelanie
                     case 0:
                         for (int i = 1; i < 11; i++)
                         {
@@ -82,6 +85,7 @@ namespace MarcinS
                                 shoot.Children.Add(button);
                                 button.Click += new RoutedEventHandler(shootButton_Click);
                                 YesNoToBooleanConverter2 yesNoToBooleanConverter2 = new YesNoToBooleanConverter2();
+
                                 Binding bind = new Binding
                                 {
                                     Path = new PropertyPath(Convert.ToString($"PersonIdTwo[{x}]")),
@@ -95,7 +99,6 @@ namespace MarcinS
                             }
                         }
                         break;
-                    //stawianie
                     case 1:
                         for (int i = 1; i < 11; i++)
                         {
@@ -123,8 +126,6 @@ namespace MarcinS
                         break;
                 }
             }
-
-
         }
         public class YesNoToBooleanConverter : IValueConverter
         {

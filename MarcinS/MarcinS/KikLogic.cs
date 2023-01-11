@@ -6,7 +6,6 @@
         private const string X = "X";
         private const string O = "O";
         private string[,] Board = new string[3, 3];
-
         public void NextPlayer()
         {
             if (CurrentPlayer == X)
@@ -45,7 +44,6 @@
                 }
 
             }
-
             if(Board[1, 1] != null)
             {
                 if (Board[0, 0] == Board[1, 1] && Board[0, 0] == Board[2, 2]) return true;

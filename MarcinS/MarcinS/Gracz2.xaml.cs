@@ -67,7 +67,6 @@ namespace MarcinS
             for (int k = 0; k < 2; k++)
             {
                 switch (k) { 
-                    //strzelanie
                     case 0:
                         for (int i = 1; i < 11; i++)
                         {
@@ -89,11 +88,9 @@ namespace MarcinS
                                 };
                                 button.SetBinding(Button.BackgroundProperty, bind);
                                 x++;
-
                             }
                         }
                         break;
-                    //stawianie  
                     case 1:
                         for (int i = 1; i < 11; i++)
                         {
@@ -116,13 +113,11 @@ namespace MarcinS
                                 };
                                 button.SetBinding(Button.BackgroundProperty, bind);
                                 y++;
-
                             }
                         }
                         break;
                 }
             }
-
         }
     }
 }
