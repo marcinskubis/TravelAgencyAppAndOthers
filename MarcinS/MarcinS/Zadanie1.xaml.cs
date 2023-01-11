@@ -17,7 +17,6 @@ namespace MarcinS
         string lastOperation = "";
         double result = 0;
         bool operation_pressed = false;
-
         #endregion
 
         #region klawisze
@@ -117,7 +116,6 @@ namespace MarcinS
             result = Convert.ToDouble(input.Text);
             screen.Content = result;
             lastOperation = "";
-            
         }
 
         

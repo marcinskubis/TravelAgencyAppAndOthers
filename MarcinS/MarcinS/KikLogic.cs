@@ -30,7 +30,6 @@
                         return true;
                     }
                 }
-
             }
             //rows
             for (int i = 0; i < 3; i++)
@@ -42,7 +41,6 @@
                         return true;
                     }
                 }
-
             }
             if(Board[1, 1] != null)
             {
