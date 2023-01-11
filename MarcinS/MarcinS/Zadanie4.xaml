@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="Zadanie4" Height="400" Width="600">
     <Canvas>
-        <Button Canvas.Left="275" Canvas.Right="275" Width="50" Height="50">1</Button>
-        <Button Canvas.Top="125" Canvas.Right="150" Width="50" Height="50">2</Button>
-        <Button Canvas.Top="125" Canvas.Left="150" Width="50" Height="50">2</Button>
-        <Button Canvas.Top="250" Canvas.Left="70" Width="50" Height="50">3</Button>
-        <Button Canvas.Top="250" Canvas.Left="220" Width="50" Height="50">3</Button>
-        <Button Canvas.Top="250" Canvas.Right="70" Width="50" Height="50">3</Button>
-        <Button Canvas.Top="250" Canvas.Right="220" Width="50" Height="50">3</Button>
+        <Button Canvas.Left="275" Canvas.Right="275" Width="50" Height="50" Content="1"/>
+        <Button Canvas.Top="125" Canvas.Right="150" Width="50" Height="50" Content="2"/>
+        <Button Canvas.Top="125" Canvas.Left="150" Width="50" Height="50" Content="2"/>
+        <Button Canvas.Top="250" Canvas.Left="70" Width="50" Height="50" Content="3"/>
+        <Button Canvas.Top="250" Canvas.Left="220" Width="50" Height="50" Content="3"/>
+        <Button Canvas.Top="250" Canvas.Right="70" Width="50" Height="50" Content="3"/>
+        <Button Canvas.Top="250" Canvas.Right="220" Width="50" Height="50" Content="3"/>
     </Canvas>
 </Window>
