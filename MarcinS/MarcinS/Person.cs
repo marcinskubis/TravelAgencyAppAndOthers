@@ -30,7 +30,6 @@ namespace MarcinS
             this.lastName = lastName;
             this.age = age;
         }
-
         public Person(Person osoba)
         {
             this.pesel = osoba.pesel;

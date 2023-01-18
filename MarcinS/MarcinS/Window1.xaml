@@ -17,7 +17,6 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-
         <TextBox Grid.Column="0" Text="{Binding pesel, Mode=TwoWay}"></TextBox>
         <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding firstName, Mode=TwoWay}"></TextBox>
         <TextBox Grid.Column="0" Grid.Row="2" Text="{Binding lastName, Mode=TwoWay}"></TextBox>
