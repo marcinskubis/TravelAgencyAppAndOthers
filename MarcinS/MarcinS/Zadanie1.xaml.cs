@@ -210,6 +210,9 @@ namespace MarcinS
             e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
         }
 
-        
+        private void coma_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
