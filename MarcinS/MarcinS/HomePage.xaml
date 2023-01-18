@@ -11,13 +11,11 @@
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-
         <Button x:Name="calculator"  FontSize="35" Click="calculatorClick">Kalkulator</Button>
         <Button x:Name="kik" FontSize="35" Grid.Column="1" Click="kikClick">Kółko i krzyżyk</Button>
         <Button x:Name="ships" FontSize="35" Grid.Row="1" Click="shipsClick">Statki</Button>

@@ -50,7 +50,6 @@
                 <RowDefinition Height="1*" />
 
             </Grid.RowDefinitions>
-
             <Label Grid.Row="12" Grid.ColumnSpan="11" Content="Strzelanie" BorderBrush="Black" BorderThickness="0,2,2,0"/>
 
             <Label Grid.Row="1" Content="A" />
