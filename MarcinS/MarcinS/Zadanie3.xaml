@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="Zadanie3" Height="250" Width="250">
     <DockPanel>
-        <Button DockPanel.Dock="Bottom">Bottom</Button>
-        <Button DockPanel.Dock="Left">Left</Button>
-        <Button DockPanel.Dock="Right" Width="30">Right</Button>
-        <Button DockPanel.Dock="Top" Background="Red" Height="50">Top</Button>
-        <Button DockPanel.Dock="Top" Background="Green" Width="80" Height="80">Top2</Button>
-        <Button DockPanel.Dock="Right" Height="65" Width="45">Right2</Button>
-        <Button DockPanel.Dock="Right" Height="65" Width="45">Right3</Button>
-        <Button DockPanel.Dock="Top" Width="110" Height="30" Background="Blue">Top3</Button>
-        <Button>Fill</Button>
+        <Button DockPanel.Dock="Bottom" Content="Bottom"/>
+        <Button DockPanel.Dock="Left" Content="Left"/>
+        <Button DockPanel.Dock="Right" Width="30" Content="Right"/>
+        <Button DockPanel.Dock="Top" Background="Red" Height="50" Content="Top"/>
+        <Button DockPanel.Dock="Top" Background="Green" Width="80" Height="80" Content="Top2"/>
+        <Button DockPanel.Dock="Right" Height="65" Width="45" Content="Right2"/>
+        <Button DockPanel.Dock="Right" Height="65" Width="45" Content="Right3"/>
+        <Button DockPanel.Dock="Top" Width="110" Height="30" Background="Blue" Content="Top3"/>
+        <Button Content="Fill"/>
     </DockPanel>
 </Window>

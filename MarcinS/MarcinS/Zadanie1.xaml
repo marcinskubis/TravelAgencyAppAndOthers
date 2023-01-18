@@ -19,8 +19,10 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
+
         <TextBox x:Name="input" Grid.ColumnSpan="2" FontSize="30" PreviewTextInput="input_previewtextinput"/>
         <Label x:Name="screen" HorizontalContentAlignment="Right" Grid.Row="0" Grid.Column="2" FontSize="30"/>
+
         <Button x:Name="add" Grid.Column="3" Grid.Row="1" FontSize="30" Click="add_Click" Content="+"/>
         <Button x:Name="sub" Grid.Column="3" Grid.Row="2" FontSize="30" Click="sub_Click" Content="-"/>
         <Button x:Name="div" Grid.Column="3" Grid.Row="4" FontSize="30" Click="div_Click" Content="/"/>
