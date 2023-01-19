@@ -1,0 +1,18 @@
+﻿<Window x:Class="MarcinS.Projekt.AddTrip"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MarcinS.Projekt"
+        mc:Ignorable="d"
+        Title="AddTrip" Height="450" Width="800">
+    <Canvas Margin="0,0,0,-6">
+        <TextBox x:Name="departure" TextWrapping="Wrap" Width="329" Canvas.Left="87" Canvas.Top="24" Height="26" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox x:Name="price" Canvas.Left="89" TextWrapping="Wrap" Canvas.Top="123" Width="329" Height="26" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Wylot" Canvas.Left="30" Canvas.Top="24"/>
+        <Label Content="Przylot" Canvas.Left="24" Canvas.Top="71" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Content="Cena" Canvas.Left="32" Canvas.Top="118" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="addButton" Content="Dodaj" Canvas.Left="440" Canvas.Top="27" Height="70" Width="130" Click="addButton_Click"/>
+        <ListBox x:Name="destination" Height="26" Width="329" Canvas.Left="89" Canvas.Top="71" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+    </Canvas>
+</Window>
