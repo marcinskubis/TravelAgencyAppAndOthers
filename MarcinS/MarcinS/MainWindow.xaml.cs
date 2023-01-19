@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarcinS.Lista2;
+using System;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,6 +27,12 @@ namespace MarcinS
         private void ChristmasPostcard_Click(object sender, RoutedEventArgs e)
         {
             Window w = new PostcardMainWIndow();
+            w.Show();
+        }
+
+        private void Lista2_Click(object sender, RoutedEventArgs e)
+        {
+            Kalkulator w = new Kalkulator();
             w.Show();
         }
     }
