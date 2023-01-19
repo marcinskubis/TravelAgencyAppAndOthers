@@ -1,4 +1,5 @@
 ﻿using MarcinS.Lista2;
+using MarcinS.Lista3;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -33,6 +34,12 @@ namespace MarcinS
         private void Lista2_Click(object sender, RoutedEventArgs e)
         {
             Kalkulator w = new Kalkulator();
+            w.Show();
+        }
+
+        private void Lista3_Click(object sender, RoutedEventArgs e)
+        {
+            Lista3MainWindow w = new Lista3MainWindow();
             w.Show();
         }
     }
