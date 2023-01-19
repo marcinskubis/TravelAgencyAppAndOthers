@@ -9,7 +9,7 @@
     <Grid>
         <Button x:Name="Lista1" Content="Lista1" HorizontalAlignment="Left" Height="103" Margin="42,32,0,0" VerticalAlignment="Top" Width="257" Click="Lista1_Click"/>
         <Button x:Name="Projekt" Content="Projekt" HorizontalAlignment="Left" Height="103" Margin="487,274,0,0" VerticalAlignment="Top" Width="257"/>
-        <Button x:Name="Lista3" Content="Lista3" HorizontalAlignment="Left" Height="103" Margin="42,274,0,0" VerticalAlignment="Top" Width="257"/>
+        <Button x:Name="Lista3" Content="Lista3" HorizontalAlignment="Left" Height="103" Margin="42,274,0,0" VerticalAlignment="Top" Width="257" Click="Lista3_Click"/>
         <Button x:Name="Lista2" Content="Lista2" HorizontalAlignment="Left" Height="103" Margin="487,32,0,0" VerticalAlignment="Top" Width="257" Click="Lista2_Click"/>
         <Button x:Name="ChristmasPostcard" Content="ChristmasPostcard" HorizontalAlignment="Center" Height="103" Margin="0,161,0,0" VerticalAlignment="Top" Width="256" Click="ChristmasPostcard_Click"/>
     </Grid>
