@@ -1,5 +1,6 @@
 ﻿using MarcinS.Lista2;
 using MarcinS.Lista3;
+using MarcinS.Projekt;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -40,6 +41,12 @@ namespace MarcinS
         private void Lista3_Click(object sender, RoutedEventArgs e)
         {
             Lista3MainWindow w = new Lista3MainWindow();
+            w.Show();
+        }
+
+        private void Projekt_Click(object sender, RoutedEventArgs e)
+        {
+            ProjectMainWindow w = new ProjectMainWindow();
             w.Show();
         }
     }
