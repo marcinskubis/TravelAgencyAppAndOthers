@@ -35,5 +35,11 @@ namespace MarcinS.Projekt
             window.Show();
 
         }
+
+        private void Trip_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = new BrowseTrips();
+            window.Show();
+        }
     }
 }
