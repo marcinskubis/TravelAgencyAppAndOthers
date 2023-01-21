@@ -56,5 +56,46 @@ namespace MarcinS.Projekt
             }
             cnn1.Close();
         }
+
+        public DataTable fillDataTable()
+        {
+            SqlConnection cnn1 = new SqlConnection(connectionString);
+            cnn1.Open();
+            SqlCommand cmd = new SqlCommand("exec fillDataTable", cnn1);
+            SqlDataAdapter a = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            a.Fill(dt);
+            return dt;
+        }
+
+        public void deleteTrip(string ID)
+        {
+            SqlConnection cnn1 = new SqlConnection(connectionString);
+            cnn1.Open();
+            SqlCommand cmd = new SqlCommand($"delete from Trips where TripID={ID}", cnn1);
+            cmd.ExecuteNonQuery();
+            cnn1.Close();
+        }
+
+        public DataTable fillDestinationTable()
+        {
+            SqlConnection cnn1 = new SqlConnection(connectionString);
+            cnn1.Open();
+            SqlCommand cmd = new SqlCommand("exec fillDestinationTable", cnn1);
+            SqlDataAdapter a = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            a.Fill(dt);
+            return dt;
+        }
+
+        public void addDestination(string name, string country, string population)
+        {
+            SqlConnection cnn1 = new SqlConnection(connectionString);
+            cnn1.Open();
+            SqlCommand cmd = new SqlCommand($"insert into Destinations(Name, Country, Population)\r\nvalues('{name}','{country}','{population}');", cnn1);
+            cmd.ExecuteNonQuery();
+            cnn1.Close();
+            MessageBox.Show("Pomyślnie dodano kierunek");
+        }
     }
 }

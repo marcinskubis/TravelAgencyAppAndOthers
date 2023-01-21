@@ -41,18 +41,6 @@ namespace MarcinS.Projekt
         }
         public void fillListBox()
         {
-            /*string connectionString = @"Data Source=MARCIN;Database=projekt;Integrated Security=True;Connect Timeout=30;
-            Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;
-            MultiSubnetFailover=False";
-            SqlConnection cnn1 = new SqlConnection(connectionString);
-            cnn1.Open();
-            SqlCommand cmd = new SqlCommand($"select * from Destinations", cnn1);
-            SqlDataReader rd = cmd.ExecuteReader();
-            while (rd.Read())
-            {
-                destination.Items.Add(rd["Name"]);
-            }
-            cnn1.Close();*/
             connection.fillComboBox(destination);
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)

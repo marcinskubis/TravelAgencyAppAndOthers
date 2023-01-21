@@ -1,5 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Data;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,36 +13,33 @@ namespace MarcinS.Projekt
     /// </summary>
     public partial class BrowseTrips : Window
     {
+        Connection cnn = new Connection();
         public BrowseTrips()
         {
             InitializeComponent();
-            loadDataF();
+            tripsTable.DataContext=cnn.fillDataTable();
         }
 
         private void loadData_Click(object sender, RoutedEventArgs e)
         {
-            loadDataF();
+            tripsTable.DataContext = cnn.fillDataTable();
         }
 
         private void deleteData_Click(object sender, RoutedEventArgs e)
         {
-            
+            string selectedID = "";
+            foreach (DataRowView row in tripsTable.SelectedItems)
+            {
+                System.Data.DataRow MyRow = (System.Data.DataRow)row.Row;
+                selectedID = MyRow["TripID"].ToString();
+            }
+            cnn.deleteTrip(selectedID);
+            tripsTable.DataContext = cnn.fillDataTable();
         }
 
-        private void loadDataF()
+        private void tripsTable_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
-            string connectionString = @"Data Source=MARCIN;Database=projekt;Integrated Security=True;Connect Timeout=30;
-            Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;
-            MultiSubnetFailover=False";
-            SqlConnection cnn1 = new SqlConnection(connectionString);
-            cnn1.Open();
-            SqlCommand cmd = new SqlCommand("select * from Trips", cnn1);
-            SqlDataAdapter a = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            a.Fill(dt);
-            cmd.Dispose();
-            cnn1.Close();
-            tripsTable.ItemsSource = dt.DefaultView;
+
         }
     }
 }

@@ -9,6 +9,7 @@
     <Canvas>
         <Button x:Name="AddTrip" Width="300" Height="70" Canvas.Top="60" Canvas.Left="70" Content="Dodaj wycieczkę" FontSize="30" Click="AddTrip_Click"/>
         <Button x:Name="Trip" Width="300" Height="70" Canvas.Top="60" Canvas.Right="70" Content="Przeglądaj wycieczki" FontSize="30" Click="Trip_Click"/>
-        <Button x:Name="Destination" Width="300" Height="70" Canvas.Top="200" Canvas.Left="70" Content="Dodaj kierunek" FontSize="30"/>
+        <Button x:Name="AddDestination" Width="300" Height="70" Canvas.Top="170" Canvas.Left="70" Content="Dodaj kierunek" FontSize="30" Click="AddDestination_Click"/>
+        <Button x:Name="BrowseDestinations" Width="300" Height="70" Canvas.Top="170" Canvas.Right="70" Content="Przeglądaj kierunki" FontSize="30" Click="BrowseDestinations_Click"/>
     </Canvas>
 </Window>
