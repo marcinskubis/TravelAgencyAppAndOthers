@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarcinS.Projekt"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         Title="ProjectMainWindow" Height="450" Width="800">
     <Canvas>
         <Button x:Name="AddTrip" Width="300" Height="70" Canvas.Top="60" Canvas.Left="70" Content="Dodaj wycieczkę" FontSize="30" Click="AddTrip_Click"/>

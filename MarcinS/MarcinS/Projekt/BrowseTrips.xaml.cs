@@ -1,10 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Data;
-using System.Reflection;
-using System.Runtime.CompilerServices;
+﻿using System.Data;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace MarcinS.Projekt
 {
@@ -27,19 +22,32 @@ namespace MarcinS.Projekt
 
         private void deleteData_Click(object sender, RoutedEventArgs e)
         {
-            string selectedID = "";
-            foreach (DataRowView row in tripsTable.SelectedItems)
+            string selectedID = null;
+            if(tripsTable.SelectedIndex>=0)
             {
-                System.Data.DataRow MyRow = (System.Data.DataRow)row.Row;
-                selectedID = MyRow["TripID"].ToString();
+                DataRowView castedRow = tripsTable.SelectedItems[0] as DataRowView;
+                if (castedRow != null) {
+
+                    foreach (DataRowView row in tripsTable.SelectedItems)
+                    {
+                        System.Data.DataRow MyRow = (System.Data.DataRow)row.Row;
+                        selectedID = MyRow["TripID"].ToString();
+                    }
+                }
+                if (selectedID != null)
+                {
+                    cnn.deleteTrip(selectedID);
+                    tripsTable.DataContext = cnn.fillDataTable();
+                }
+                else
+                {
+                    MessageBox.Show("Wybierz poprawną pozycję.");
+                }
             }
-            cnn.deleteTrip(selectedID);
-            tripsTable.DataContext = cnn.fillDataTable();
-        }
-
-        private void tripsTable_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
-        {
-
+            else
+            {
+                MessageBox.Show("Wybierz poprawną pozycję.");
+            }
         }
     }
 }
