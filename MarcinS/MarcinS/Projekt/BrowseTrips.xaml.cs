@@ -1,5 +1,7 @@
 ﻿using System.Data;
 using System.Windows;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace MarcinS.Projekt
 {
@@ -37,7 +39,13 @@ namespace MarcinS.Projekt
                 if (selectedID != null)
                 {
                     cnn.deleteTrip(selectedID);
-                    tripsTable.DataContext = cnn.fillDataTable();
+                    //tripsTable.DataContext = cnn.fillDataTable();
+                    DataRowView drv = tripsTable.SelectedItem as DataRowView;
+                    if (drv != null)
+                    {
+                        DataView dataView = tripsTable.ItemsSource as DataView;
+                        dataView.Table.Rows.Remove(drv.Row);
+                    }
                 }
                 else
                 {
@@ -48,6 +56,13 @@ namespace MarcinS.Projekt
             {
                 MessageBox.Show("Wybierz poprawną pozycję.");
             }
+        }
+
+        private void editData_Click(object sender, RoutedEventArgs e)
+        {
+            Window wwindow = new EditTrip();
+            wwindow.Show();
+
         }
     }
 }

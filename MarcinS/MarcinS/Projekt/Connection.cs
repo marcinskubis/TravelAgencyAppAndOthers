@@ -25,7 +25,9 @@ namespace MarcinS.Projekt
         {
             cnn.Open();
             SqlCommand getIdByName = new SqlCommand($"exec getIdByName {name}", cnn);
-            return Convert.ToInt32(getIdByName.ExecuteScalar());
+            int x = Convert.ToInt32(getIdByName.ExecuteScalar());
+            cnn.Close();
+            return x;
         }
 
         public void fillComboBox(ComboBox box)
@@ -47,6 +49,7 @@ namespace MarcinS.Projekt
             SqlDataAdapter a = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             a.Fill(dt);
+            cnn.Close();
             return dt;
         }
 
@@ -65,6 +68,7 @@ namespace MarcinS.Projekt
             SqlDataAdapter a = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             a.Fill(dt);
+            cnn.Close();
             return dt;
         }
 
