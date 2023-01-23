@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
@@ -71,7 +72,6 @@ namespace MarcinS.Projekt
             cnn.Close();
             return dt;
         }
-
         public void addDestination(string name, string country, string population)
         {
             cnn.Open();

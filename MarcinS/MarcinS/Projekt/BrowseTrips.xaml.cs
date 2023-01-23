@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 namespace MarcinS.Projekt
 {
@@ -56,10 +57,6 @@ namespace MarcinS.Projekt
             {
                 MessageBox.Show("Wybierz poprawną pozycję.");
             }
-        }
-
-        private void editData_Click(object sender, RoutedEventArgs e)
-        {
         }
     }
 }
