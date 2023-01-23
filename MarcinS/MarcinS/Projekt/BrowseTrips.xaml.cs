@@ -60,9 +60,6 @@ namespace MarcinS.Projekt
 
         private void editData_Click(object sender, RoutedEventArgs e)
         {
-            Window wwindow = new EditTrip();
-            wwindow.Show();
-
         }
     }
 }
