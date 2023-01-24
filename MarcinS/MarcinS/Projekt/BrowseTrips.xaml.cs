@@ -73,7 +73,6 @@ namespace MarcinS.Projekt
             trip.Przylot = getData("Przylot");
             trip.Data = getDate();
             trip.list.Add(trip);
-            MessageBox.Show(trip.Data.ToString());
             EditTrip ed = new EditTrip(trip);
             ed.Show();
         }

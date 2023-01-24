@@ -55,7 +55,6 @@ namespace MarcinS.Projekt
             trip.Dni = length.Text;
             trip.Data = date.SelectedDate.Value.Date;
             int destinationid = cnn.getIdByName(trip.Przylot.ToString());
-            MessageBox.Show(id.ToString());
             cnn.changeRow(id, destinationid,trip.Wylot.ToString(), trip.Cena.ToString(), trip.Dni.ToString(), trip.Hotel.ToString(), txt);
             cnn.fillDataTable();
             this.Close();
