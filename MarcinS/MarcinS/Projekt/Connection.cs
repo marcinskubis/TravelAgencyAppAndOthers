@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.Metrics;
+using System.Printing;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -80,5 +82,13 @@ namespace MarcinS.Projekt
             cnn.Close();
             MessageBox.Show("Pomyślnie dodano kierunek");
         }
+
+        public void changeRow(int tripID, int destinationID, string departure, string price, string length, string hotel, string date) {
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand($"EXEC [dbo].[changeRow] @tripID = {tripID}, @destinationID = {destinationID}, @departure = '{departure}', @price = {price}, @length = {length}, @date = '{date}', @hotel = '{hotel}'", cnn);
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+
     }
 }

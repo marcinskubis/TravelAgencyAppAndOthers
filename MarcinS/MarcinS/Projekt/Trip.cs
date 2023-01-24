@@ -8,12 +8,14 @@ namespace MarcinS.Projekt
 {
     public class Trip
     {
-        public int TripID { get; set; }
-        public string Departure { get; set; }
-        public string Destination { get; set; }
-        public double Price { get; set; }
-        public int Length { get; set; }
-        public string Hotel { get; set; }
-        public DateTime Date { get; set; }
+        public List<Trip> list = new List<Trip>();
+        public object TripID { get; set; }
+        public object Wylot { get; set; }
+        public object Przylot { get; set; }
+        public object Cena { get; set; }
+        public object Dni { get; set; }
+        public object Hotel { get; set; }
+        public object Data { get; set; }
+        
     }
 }
