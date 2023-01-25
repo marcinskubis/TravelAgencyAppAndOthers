@@ -26,7 +26,10 @@ namespace MarcinS.Projekt
         public int getIdByName(string name)
         {
             cnn.Open();
-            SqlCommand getIdByName = new SqlCommand($"exec getIdByName {name}", cnn);
+            SqlDataAdapter da2 = new SqlDataAdapter();
+            SqlParameter name1 = new SqlParameter("@name", SqlDbType.VarChar);
+            SqlCommand getIdByName = new SqlCommand($"select dbo.GetIdByNameFunction('{@name}')", cnn);
+            name1.Value= name;
             int x = Convert.ToInt32(getIdByName.ExecuteScalar());
             cnn.Close();
             return x;
@@ -42,10 +45,20 @@ namespace MarcinS.Projekt
             }
             cnn.Close();
         }
-        public DataTable fillDataTable()
+        public DataTable fillDataTable(string procedure)
         {
             cnn.Open();
-            SqlCommand cmd = new SqlCommand("exec fillDataTable", cnn);
+            SqlCommand cmd = new SqlCommand($"exec {procedure}", cnn);
+            SqlDataAdapter a = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            a.Fill(dt);
+            cnn.Close();
+            return dt;
+        }
+        public DataTable fillDestinationTable()
+        {
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand("exec fillDestinationTable", cnn);
             SqlDataAdapter a = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             a.Fill(dt);
@@ -58,16 +71,6 @@ namespace MarcinS.Projekt
             SqlCommand cmd = new SqlCommand($"delete from Trips where TripID={ID}", cnn);
             cmd.ExecuteNonQuery();
             cnn.Close();
-        }
-        public DataTable fillDestinationTable()
-        {
-            cnn.Open();
-            SqlCommand cmd = new SqlCommand("exec fillDestinationTable", cnn);
-            SqlDataAdapter a = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            a.Fill(dt);
-            cnn.Close();
-            return dt;
         }
         public void addDestination(string name, string country, string population)
         {

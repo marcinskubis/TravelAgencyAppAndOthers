@@ -13,12 +13,14 @@ namespace MarcinS.Projekt
         public BrowseTrips()
         {
             InitializeComponent();
-            tripsTable.DataContext = cnn.fillDataTable();
+            string x = "fillDataTable";
+            tripsTable.DataContext = cnn.fillDataTable(x);
         }
 
         private void loadData_Click(object sender, RoutedEventArgs e)
         {
-            tripsTable.DataContext = cnn.fillDataTable();
+            string x = "fillDataTable";
+            tripsTable.DataContext = cnn.fillDataTable(x);
         }
 
         private void deleteData_Click(object sender, RoutedEventArgs e)
@@ -71,7 +73,8 @@ namespace MarcinS.Projekt
             ed.ShowDialog();
             if(ed.IsLoaded==false)
             {
-                cnn.fillDataTable();
+                string x = "fillDataTable";
+                tripsTable.DataContext = cnn.fillDataTable(x);
             }
         }
         private string getData(string column)

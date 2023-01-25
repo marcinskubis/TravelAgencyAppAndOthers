@@ -15,7 +15,8 @@ namespace MarcinS.Projekt
         public BrowseDestinations()
         {
             InitializeComponent();
-            destinations.DataContext = cnn.fillDestinationTable();
+            string x = "fillDestinationTable";
+            destinations.DataContext = cnn.fillDataTable(x);
         }
         private void destinations_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
