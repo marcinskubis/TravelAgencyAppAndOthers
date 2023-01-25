@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace MarcinS.Projekt
 {
@@ -59,8 +47,6 @@ namespace MarcinS.Projekt
             cnn.fillDataTable();
             this.Close();
         }
-
-
         private bool checkIfChanged(Trip orTrip, Trip chTrip)
         {
             if(orTrip.Cena.Equals(chTrip.Cena) || orTrip.Hotel.Equals(chTrip.Hotel)

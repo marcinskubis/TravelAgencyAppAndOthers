@@ -17,7 +17,6 @@ namespace MarcinS.Projekt
             InitializeComponent();
             destinations.DataContext = cnn.fillDestinationTable();
         }
-
         private void destinations_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
             DataRowView castedRow = destinations.SelectedItems[0] as DataRowView;

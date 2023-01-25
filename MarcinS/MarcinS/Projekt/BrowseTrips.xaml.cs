@@ -1,10 +1,6 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Windows;
-using System.Collections;
-using System.Collections.Generic;
-using System;
-using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
-using System.Data.Common;
 
 namespace MarcinS.Projekt
 {
@@ -61,7 +57,6 @@ namespace MarcinS.Projekt
                 MessageBox.Show("Wybierz poprawną pozycję.");
             }
         }
-
         private void editData_Click(object sender, RoutedEventArgs e)
         {
             Trip trip = new Trip();
@@ -76,7 +71,6 @@ namespace MarcinS.Projekt
             EditTrip ed = new EditTrip(trip);
             ed.Show();
         }
-
         private string getData(string column)
         {
             string x=null;
@@ -96,7 +90,6 @@ namespace MarcinS.Projekt
             }
             return x;
         }
-
         private DateTime getDate()
         {
             DateTime x=DateTime.Today;

@@ -23,7 +23,6 @@ namespace MarcinS.Projekt
             cnn.Close();
             MessageBox.Show("Pomyślnie dodano wycieczkę");
         }
-
         public int getIdByName(string name)
         {
             cnn.Open();
@@ -32,7 +31,6 @@ namespace MarcinS.Projekt
             cnn.Close();
             return x;
         }
-
         public void fillComboBox(ComboBox box)
         {
             cnn.Open();
@@ -44,7 +42,6 @@ namespace MarcinS.Projekt
             }
             cnn.Close();
         }
-
         public DataTable fillDataTable()
         {
             cnn.Open();
@@ -55,7 +52,6 @@ namespace MarcinS.Projekt
             cnn.Close();
             return dt;
         }
-
         public void deleteTrip(string ID)
         {
             cnn.Open();
@@ -63,7 +59,6 @@ namespace MarcinS.Projekt
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
-
         public DataTable fillDestinationTable()
         {
             cnn.Open();
@@ -82,7 +77,6 @@ namespace MarcinS.Projekt
             cnn.Close();
             MessageBox.Show("Pomyślnie dodano kierunek");
         }
-
         public void changeRow(int tripID, int destinationID, string departure, string price, string length, string hotel, string date) {
             cnn.Open();
             SqlCommand cmd = new SqlCommand($"EXEC [dbo].[changeRow] @tripID = {tripID}, @destinationID = {destinationID}, @departure = '{departure}', @price = {price}, @length = {length}, @date = '{date}', @hotel = '{hotel}'", cnn);
