@@ -6,6 +6,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:MarcinS.Projekt"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         Title="AddTrip" Height="400" Width="600">
     <Canvas>
         <TextBox x:Name="departure" Width="331" Canvas.Left="87" Canvas.Top="24" Height="26"/>

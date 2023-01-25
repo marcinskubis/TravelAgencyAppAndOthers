@@ -13,25 +13,25 @@ namespace MarcinS.Projekt
         private void AddTrip_Click(object sender, RoutedEventArgs e)
         {
             Window window = new AddTrip();
-            window.Show();
+            window.ShowDialog();
 
         }
         private void Trip_Click(object sender, RoutedEventArgs e)
         {
             Window window = new BrowseTrips();
-            window.Show();
+            window.ShowDialog();
         }
 
         private void BrowseDestinations_Click(object sender, RoutedEventArgs e)
         {
             Window window = new BrowseDestinations();
-            window.Show();
+            window.ShowDialog();
         }
 
         private void AddDestination_Click(object sender, RoutedEventArgs e)
         {
             Window window = new AddDestination();
-            window.Show();
+            window.ShowDialog();
         }
     }
 }
