@@ -55,16 +55,6 @@ namespace MarcinS.Projekt
             cnn.Close();
             return dt;
         }
-        public DataTable fillDestinationTable()
-        {
-            cnn.Open();
-            SqlCommand cmd = new SqlCommand("exec fillDestinationTable", cnn);
-            SqlDataAdapter a = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            a.Fill(dt);
-            cnn.Close();
-            return dt;
-        }
         public void deleteTrip(string ID)
         {
             cnn.Open();
