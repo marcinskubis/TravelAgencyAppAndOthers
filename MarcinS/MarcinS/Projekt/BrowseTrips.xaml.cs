@@ -68,7 +68,7 @@ namespace MarcinS.Projekt
             trip.Przylot = getData("Przylot");
             trip.Data = getDate();
             EditTrip ed = new EditTrip(trip);
-            ed.Show();
+            ed.ShowDialog();
             if(ed.IsLoaded==false)
             {
                 cnn.fillDataTable();
