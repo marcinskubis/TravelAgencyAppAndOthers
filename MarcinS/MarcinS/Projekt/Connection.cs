@@ -18,7 +18,7 @@ namespace MarcinS.Projekt
         public void addTripF(string departure, int destinationID, string price, string length, string date, string hotel)
         {
             cnn.Open();
-            SqlCommand cmd = new SqlCommand($"insert into Trips(Deparature, DestinationID, Price, Length, Date, Hotel)\r\nvalues('{departure}','{destinationID}',{Convert.ToDouble(price)},'{length}','{date}','{hotel}');", cnn);
+            SqlCommand cmd = new SqlCommand($"exec [dbo].[insertIntoTrips] @destinationID={destinationID}, @departure='{departure}', @price={Convert.ToDouble(price)}, @length={length}, @date='{date}', @hotel='{hotel}';", cnn);
             cmd.ExecuteNonQuery();
             cnn.Close();
             MessageBox.Show("Pomyślnie dodano wycieczkę");
@@ -37,7 +37,7 @@ namespace MarcinS.Projekt
         public void fillComboBox(ComboBox box)
         {
             cnn.Open();
-            SqlCommand cmd = new SqlCommand($"select * from Destinations", cnn);
+            SqlCommand cmd = new SqlCommand($"exec drawTable", cnn);
             SqlDataReader rd = cmd.ExecuteReader();
             while (rd.Read())
             {
