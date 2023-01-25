@@ -11,6 +11,5 @@ namespace MarcinS.Projekt
         public object Dni { get; set; }
         public object Hotel { get; set; }
         public object Data { get; set; }
-        
     }
 }
