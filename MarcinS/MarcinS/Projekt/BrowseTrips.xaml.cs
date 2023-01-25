@@ -67,9 +67,12 @@ namespace MarcinS.Projekt
             trip.Cena = getData("Cena");
             trip.Przylot = getData("Przylot");
             trip.Data = getDate();
-            trip.list.Add(trip);
             EditTrip ed = new EditTrip(trip);
             ed.Show();
+            if(ed.IsLoaded==false)
+            {
+                cnn.fillDataTable();
+            }
         }
         private string getData(string column)
         {

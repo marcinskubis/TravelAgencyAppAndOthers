@@ -44,20 +44,7 @@ namespace MarcinS.Projekt
             trip.Data = date.SelectedDate.Value.Date;
             int destinationid = cnn.getIdByName(trip.Przylot.ToString());
             cnn.changeRow(id, destinationid,trip.Wylot.ToString(), trip.Cena.ToString(), trip.Dni.ToString(), trip.Hotel.ToString(), txt);
-            cnn.fillDataTable();
             this.Close();
-        }
-        private bool checkIfChanged(Trip orTrip, Trip chTrip)
-        {
-            if(orTrip.Cena.Equals(chTrip.Cena) || orTrip.Hotel.Equals(chTrip.Hotel)
-                || orTrip.Wylot.Equals(chTrip.Wylot) || orTrip.Dni.Equals(chTrip.Dni)
-                || orTrip.Przylot.Equals(chTrip.Przylot)|| orTrip.Data.Equals(chTrip.Data)) {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
     }
 }

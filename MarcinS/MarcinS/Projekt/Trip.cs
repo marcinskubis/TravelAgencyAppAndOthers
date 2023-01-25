@@ -4,7 +4,6 @@ namespace MarcinS.Projekt
 {
     public class Trip
     {
-        public List<Trip> list = new List<Trip>();
         public object TripID { get; set; }
         public object Wylot { get; set; }
         public object Przylot { get; set; }
