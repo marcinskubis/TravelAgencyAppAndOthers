@@ -61,11 +61,52 @@ namespace MarcinS {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] berlin {
+            get {
+                object obj = ResourceManager.GetObject("berlin", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] miami {
+            get {
+                object obj = ResourceManager.GetObject("miami", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] pekin {
+            get {
+                object obj = ResourceManager.GetObject("pekin", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         ///   Wyszukuje zlokalizowany zasób typu System.IO.UnmanagedMemoryStream podobny do zasobu System.IO.MemoryStream.
         /// </summary>
         public static System.IO.UnmanagedMemoryStream sound {
             get {
                 return ResourceManager.GetStream("sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] victoria {
+            get {
+                object obj = ResourceManager.GetObject("victoria", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }
