@@ -29,6 +29,8 @@ namespace MarcinS
         {
             Kalkulator w = new Kalkulator();
             w.Show();
+            Kik k = new Kik();
+            k.Show();
         }
         private void Lista3_Click(object sender, RoutedEventArgs e)
         {

@@ -15,7 +15,9 @@
     <None Remove="Resources\berlin.jpg" />
     <None Remove="Resources\miami.jpg" />
     <None Remove="Resources\pekin.jpg" />
+    <None Remove="Resources\sound.wav" />
     <None Remove="Resources\victoria.jpg" />
+    <None Remove="sound\sound.wav" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,7 +40,13 @@
     <Resource Include="Resources\pekin.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\sound.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\victoria.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="sound\sound.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
