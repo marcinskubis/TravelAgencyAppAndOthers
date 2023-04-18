@@ -1,4 +1,5 @@
 # TravelAgencyAppAndOthers
-Travel agency application with DB using SQL Server
 
-Travel agency is in folder named 'Projekt'
+Travel agency application is in folder named 'Projekt'
+
+Project was developed using C# WPF and Database in SQL Server
